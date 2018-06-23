@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<!--
+
+<script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+-->
+
+<script src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js"></script>
+
+<div id="player" align="center"></div><br>
+ <script> 
+
+ function $_GET(param) {
+	var vars = {};
+	window.location.href.replace( location.hash, '' ).replace( 
+		/[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+		function( m, key, value ) { // callback
+			vars[key] = value !== undefined ? value : '';
+		}
+	);
+
+	if ( param ) {
+		return vars[param] ? vars[param] : null;	
+	}
+	return vars;
+};
+
+var stream = decodeURI( $_GET( 'flux' ) );
+  
+var player = new Clappr.Player({source: stream ,plugins: [ChromecastPlugin],chromecast: {
+          appId: '9DFB77C0',
+          contentType: 'video/m3u8',
+          
+        },autoPlay:true,mute:false, width:"720", height:"400", poster:"https://4.bp.blogspot.com/-Kgq_cql721U/Wy4zzEVWY1I/AAAAAAAAAJA/uB50yYEjJTYEvGdgGUxX6Bxeyx93L6ZrACLcBGAs/s1600/FIFA%2BWorld%2BCup%2BRussia.png" , parentId: "#player"});</script>
+
+
+</body>
+</html>
+
+
